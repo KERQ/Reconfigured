@@ -27,7 +27,6 @@ WITH
       SELECT
         -- Column: ___hash
         {{ hash_from_cols([
-             "full_name",
              "number_of_orders",
              "customer_id"
            ], "rciulbiv") +
