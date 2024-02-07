@@ -1,0 +1,40 @@
+version: 2
+models:
+  - name: stg___raw_jaffle_shop__payments
+    description: "Project model from source: raw_jaffle_shop - payments"
+    columns:
+      - name: ___hash
+        description: Hash of the columns defined in the uploaded source manifest
+        tests:
+          - not_null
+          - unique
+      - name: ___as_of
+        description: Best guestimate on since when this row is true. Looks first for
+          configuration for As of column, then updated_at, then created_at then
+          loaded at. If no value available fallsback to 0001-01-01T00:00:00
+      - name: ___loaded_at
+        description: Time when this object was loaded from Source table to this TV-ODS
+      - name: ___source_loaded_at
+        description: Time when this object was loaded from the Source system to the
+          Source table. Fallback to current run time.
+      - name: ___is_deleted
+        description: Boolean flag indigating deletion
+      - name: ___source_id
+        description: Id of the object in the Source from which this row came from
+      - name: payment_date
+        description: 'Column payment_date in Table "payments" in Schema: raw_jaffle_shop'
+      - name: payment_id
+        description: 'Column payment_id in Table "payments" in Schema: raw_jaffle_shop'
+      - name: payment_description
+        description: 'Column payment_description in Table "payments" in Schema:
+          raw_jaffle_shop'
+    config:
+      materialized: incremental
+      tags:
+        - reconf
+        - rc_source
+      schema: stg
+    meta:
+      reconf:
+        dagId: da400d16456990db64577be476ccff2f
+        generationId: e04f4f1d5700376c79eb1c2846ff45eb

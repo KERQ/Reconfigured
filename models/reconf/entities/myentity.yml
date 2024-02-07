@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: myentity
+    description: ""
+    columns:
+      - name: first_attribute
+        description: ""
+        tests:
+          - not_null
+          - unique
+      - name: second_attribute
+        description: ""
+        tests: []
+    config:
+      materialized: table
+      tags:
+        - reconf
+      schema: entities
+    meta:
+      reconf:
+        dagId: 13f94fd22c053350afbf8f7553aa02e6
+        generationId: e04f4f1d5700376c79eb1c2846ff45eb
