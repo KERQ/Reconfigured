@@ -68,7 +68,8 @@ WITH
             string_literal(max_loaded_at) +
             " AS " + t("timestamp") +
           ")" + " )", "1 = 1") +
-        " AND " + "( " + run_start_ts() + " <= " + run_start_ts() + " )" + " )"
+        " AND " + "( " + run_start_ts() + " <= " + run_start_ts() + " )" +
+        " AND " + "( " + string_literal("test") + " - " + NULL + " )" + " )"
       }}
     )
     ,___rn_added AS (
